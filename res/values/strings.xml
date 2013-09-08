@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Settings</string>
+    <string name="app_name">MusicPlayer</string>
+    <string name="inputHint">remote music uri</string>
+    <string name="local_music_list">Local List</string>
+    <string name="tab_local">LocalMusic</string>
+    <string name="tab_remote">RemoteMusic</string>
+    <string name="play_remote">Play</string>
+    <string name="no_records">no records</string>
+    <string name="recent_records">recent play records</string>
+</resources>
