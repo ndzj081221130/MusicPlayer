@@ -70,14 +70,15 @@ public class RemoteFragment extends Fragment {
 	 * @param field 保存在sharedPreference中的字段名
 	 * @param auto 要操作的AutoCompleteTextView
 	 */
-	private void initAutoComplete(String field,AutoCompleteTextView auto) {
+	private void initAutoComplete(String field,AutoCompleteTextView auto) {//music_url
 		SharedPreferences sp = getActivity().getSharedPreferences("music_url", 0);
 		String longhistory = sp.getString("history",getString(R.string.no_records));
 		String[]  hisArrays = longhistory.split(",");
  		for(String str:hisArrays)
-			myMusicList.add(str);
+ 			if (str.equals("nothing") == false)
+ 				myMusicList.add(str);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_dropdown_item_1line, hisArrays);
+				android.R.layout.simple_dropdown_item_1line, myMusicList);
 		//只保留最近的50条的记录
 		if(hisArrays.length > 50){
 			String[] newArrays = new String[50];
