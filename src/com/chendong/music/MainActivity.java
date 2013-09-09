@@ -13,8 +13,8 @@ import android.support.v4.view.ViewPager;
 public class MainActivity extends FragmentActivity 
 				implements ActionBar.TabListener{
     
-	private LocalFragment localFragment = new LocalFragment();
-	private RemoteFragment remoteFragment = new RemoteFragment();
+	private LocalFragment localFragment ;
+	private RemoteFragment remoteFragment ;
 	
 	private static final int TAB_INDEX_COUNT = 2;
 	
@@ -29,10 +29,21 @@ public class MainActivity extends FragmentActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+        localFragment = new LocalFragment();
+        remoteFragment = new RemoteFragment();
         setUpActionBar();
         setUpViewPager();
         setUpTabs();
+    }
+    
+    @Override
+    public void onResume(){
+    	super.onResume();
+//    	 localFragment = new LocalFragment();
+//         remoteFragment = new RemoteFragment();
+//         setUpActionBar();
+//         setUpViewPager();
+//         setUpTabs();
     }
     
     private void setUpActionBar() {
@@ -61,17 +72,13 @@ public class MainActivity extends FragmentActivity
     		public void onPageScrollStateChanged(int state) {
     			switch(state) {
     				case ViewPager.SCROLL_STATE_IDLE:
-    					//TODO
-    					break;
+     					break;
     				case ViewPager.SCROLL_STATE_DRAGGING:
-    					//TODO
-    					break;
+     					break;
     				case ViewPager.SCROLL_STATE_SETTLING:
-    					//TODO
-    					break;
+     					break;
     				default:
-    					//TODO
-    					break;
+     					break;
     			}
     		}
     	});
@@ -85,14 +92,7 @@ public class MainActivity extends FragmentActivity
     				.setTabListener(this));
     	}
     	
-    	
-//    	int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
-//    	if (actionBarTitleId > 0) {
-//    	    TextView title = (TextView) findViewById(actionBarTitleId);
-//    	    if (title != null) {
-//    	        title.setTextColor(Color.RED);
-//    	    }
-//    	}
+    	 
     }
     
     @Override
@@ -108,7 +108,6 @@ public class MainActivity extends FragmentActivity
 
 		@Override
 		public Fragment getItem(int position) {
-			// TODO Auto-generated method stub
 			switch (position) {
 				case TAB_INDEX_ONE:
 					return localFragment;

@@ -89,6 +89,7 @@ public final class R {
         public static final int app_name=0x7f070001;
         public static final int inputHint=0x7f070002;
         public static final int local_music_list=0x7f070003;
+        public static final int music_title=0x7f070009;
         public static final int no_records=0x7f070007;
         public static final int play_remote=0x7f070006;
         public static final int recent_records=0x7f070008;

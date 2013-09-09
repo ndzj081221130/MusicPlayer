@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class LocalFragment extends Fragment {
-	private List<String> _myMusicList = new ArrayList<String>();
+	private List<String> _myMusicList ;
 	private List<MusicData> _musDatas;
 	private ListView listView;
 
@@ -32,11 +32,19 @@ public class LocalFragment extends Fragment {
 			ViewGroup container, Bundle savedInstanceState, int layoutResourceId) {
 		View layout = inflater.inflate(layoutResourceId, container, false);
 		listView = (ListView) layout.findViewById(R.id.local_list);
-		musicList();
+		initMusicList();
 		return layout;
 	}
 
-	void musicList() {
+	@Override
+	public void  onResume(){
+		super.onResume();  
+//        initMusicList();
+	}
+	
+	void initMusicList() {
+		System.out.println("call initMusicList");
+		_myMusicList = new ArrayList<String>();
 		_musDatas = getMusicFileList();
 		ArrayAdapter<String> musicList = new ArrayAdapter<String>(
 				getActivity(), R.layout.music_item, _myMusicList);
